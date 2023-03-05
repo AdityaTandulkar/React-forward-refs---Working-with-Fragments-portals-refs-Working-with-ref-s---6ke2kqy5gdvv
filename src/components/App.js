@@ -3,9 +3,16 @@ import '../styles/App.css';
 import InputField from './InputField.js';
 const App = () => {
  
-//code here 
+//code here
+  const newRef = useRef(null);
+  const [values, setValues] = useState('');
 
-
+  function focusInput(){
+    newRef.current.focus()
+  }
+  function settingValue(){
+    setValues(newRef.current.value);
+  }
  
   return (
     <div>
@@ -13,7 +20,6 @@ const App = () => {
     <button id="settingValueButton" onClick={settingValue}>Set Value</button>
     <button id="focusInputButton" onClick={focusInput}>Focus the input</button><br/><br/>
      <textarea id="textarea" value={values}></textarea>
-
     </div>
   );
 }
